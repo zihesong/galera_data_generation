@@ -264,7 +264,8 @@ def run_ops(list_of_ops, client_no):
                     cursor.execute("UPDATE galera.variables SET val=%d WHERE var=%d;" % (val,key))
                     single_op = 'w(' + str(key) + ',' + str(val) + ',' + str(client_no) + ',' + str(i) + ',' + str(op_num) + ')'
                 except Exception as e:
-                    single_op = 'w(' + str(key) + ',' + str(val) + ',' + str(client_no) + ',' + str(i) + ',' + str(op_num) + ')'
+                    # print('Error in commit: {}'.format(e))
+		    single_op = 'w(' + str(key) + ',' + str(val) + ',' + str(client_no) + ',' + str(i) + ',' + str(op_num) + ')'
                     e_flag = True
             elif(op[0] == 'read'):
                 try:
@@ -273,6 +274,7 @@ def run_ops(list_of_ops, client_no):
                     record_val = return_val[0][0]
                     single_op = 'r(' + str(key) + ',' + str(record_val) + ',' + str(client_no) + ',' + str(i) + ',' + str(op_num) + ')'
                 except Exception as e:
+		    # print('Error in commit: {}'.format(e)) 
                     single_op = 'r(' + str(key) + ',' + str(record_val) + ',' + str(client_no) + ',' + str(i) + ',' + str(op_num) + ')'
                     e_flag = True
             else:
@@ -280,10 +282,22 @@ def run_ops(list_of_ops, client_no):
             op_num += 1
             temp_tx_op.append(single_op)
             
-        try:
-            cursor.execute("COMMIT;")
-        except Exception as e:
-            e_flag = True
+	# Update to avoid partial commit
+	
+	# try:
+            # cursor.execute("COMMIT;")
+        # except Exception as e:
+            # e_flag = True
+		
+	if e_flag == True:
+            cursor.execute("ROLLBACK;")
+        else:
+            try:
+                cursor.execute("COMMIT;")
+            except Exception as e:
+                # print('Error in commit: {}'.format(e)) 
+                cursor.execute("ROLLBACK;")
+                e_flag = True
         connect.commit()
         if e_flag == False:
             t_count += 1
