@@ -33,6 +33,7 @@ class DiGraph:
         for key in list(self.adj_map.keys()):
             reachable = set()
             if self.dfs_util_reach(key, key, reachable):
+                # print the final key in the cycle
                 print("reach key is: " + str(key))
                 return True
         return False
@@ -227,4 +228,5 @@ if __name__ == '__main__':
         causal_hist.vis_is_trans()
         if causal_hist.vis.has_cycle():
             print('BP222222 found in: ' + str(i))
+            # change the node num to the final reach key to find the related nodes
             print(causal_hist.vis.find_cycle(6))
