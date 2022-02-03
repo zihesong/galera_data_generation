@@ -12,13 +12,13 @@ def get_op(op):
         'tra_id': int(arr[3]),
     }
 
-for i in range(100):
+for i in range(100):  # num of run
     folder_name = 'output/' + str(i) + '/'
     file_list = [fn for fn in os.listdir(folder_name) if fn.endswith('.txt')]
     ops = []
     for file in file_list:
         ops += linecache.getlines(folder_name + file)
-    ops_per_trans = 25
+    ops_per_trans = 25 # must change according to operation number per transaction
     with open(folder_name + 'result.txt', 'w') as f:
         now_id = 0
         cnt = ops_per_trans
