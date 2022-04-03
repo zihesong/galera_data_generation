@@ -2,7 +2,7 @@
 
 # sh galera-server.sh 1
 
-#change parameter
+#Need to change parameters here
 cluster_name="galera-121"
 server1="155.98.39.143"
 server2="155.98.39.151"
