@@ -1,8 +1,3 @@
-'''
-scp -P 22 /Users/zoooesong/Workspaces/galera-thread.py nobi@pc311.emulab.net:/users/nobi/galera-data/galera-thread.py
-python3 galera-thread.py -n 1
-'''
-
 import linecache
 import os
 import time
@@ -26,7 +21,7 @@ operation_num = 25 # operation num in each transaction
 threads_num = 10 # client number
 node_no=1 # node No. if multiple threads is enabled
 folder_num = 0 # the output folder number
-server_id = ['155.98.39.143','155.98.39.151','155.98.39.130'] # galera node ip address
+server_id = ['155.98.39.143','155.98.39.151','155.98.39.130'] # galera server nodes ip_address
 
 try:
     opts, args = getopt.getopt(sys.argv[1:],"hw:r:p:t:o:c:n:f:",["help","wo_rate=","ro_rate=","w_percent=","trans_num=","op_num=","client_num=","node_no=","folder_num="])
@@ -311,7 +306,7 @@ def run_ops(list_of_ops, client_no):
     cursor.close()
     connect.close()
     if t_count < transaction_num:
-        print("################################################################################################################UNFINISH################################################################################################################")
+        print("UNFINISH")
     return result_ops, e_count, server_num
 
 def write_result(result,file_path, error_num, server_num):
