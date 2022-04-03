@@ -1,3 +1,8 @@
+'''
+Merge results on all threads into one file
+'''
+
+
 import os
 import linecache
 
