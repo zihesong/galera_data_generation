@@ -53,12 +53,16 @@ The parameter `running_times` refers to run times `j` in [multi_threads.sh](./mu
 
 The format of each operation is: `read/write(variable, value, client_id, transaction_id)`, denote as `r/w(var, val, cid, tid)`
 * Property One:
+
     For each Read operation `r(var, val, cid_1, tid_1)`, then the related Write operation `w(var, val, cid_2, tid_2)` must be a committed operation, in other words, `tid_2` must be a committed transaction.
 * Property Two:
+
     For each Read operation `r(var, val_2, cid, tid)`, if there is a Write operation `w(var, val_1, cid, tid)` in the same transaction happened before this Read operation, then `val_1 = val_2`. Specifically, if there are multiple Write operations before the Read operation, the Read operation should return the value from the last Write operation.
 * Property Three:
+
     For each Read operation `r(var, val, cid_1, tid_1)`, if the related Write operation `w(var, val, cid_2, tid_2)` is coming from a different transation `tid_2`, then the Write operation `w(var, val, cid_2, tid_2)` must be the last Write operation to `var` in trasaction `tid_2`.
 * Property Four:
+
     For multiple Read operations in the same transaction, `r(var, val_1, cid, tid)` and `r(var, val_2, cid, tid)`, if there is no Write operation to `var` between them, then `val_1 = val_2`.
   
 ### Run [multi_threads.sh](./multi_threads.sh) to automatically generate workloads.
