@@ -32,7 +32,9 @@ The collected traces will be stored in folder `output/folder_num/` where the tra
 
 ### Run [group_data.py](./group_data.py) to normalize the collected data into one file result.txt.
 
-Please make sure the `ops_per_trans` is same with `operation_num` in `galera.py`.
+`python3 group_data.py -o <operation_num> -r <running_times>`
+
+The parameter `running_times` refers to run times in [multi_threads.sh](./multi_threads.sh).
 
 ### Run [check_rr.py](./check_rr.py) to check if the execution run violates Repeatable Read consistency.
 
