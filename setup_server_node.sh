@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# sh galera-server.sh 1
+# sh setup_server_node.sh 1
+# sh setup_server_node.sh 2
+# sh setup_server_node.sh 3
 
 # need to change parameters here
 cluster_name="galera-121"
