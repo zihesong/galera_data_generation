@@ -1,7 +1,9 @@
 # Checking Repeatable Read Consistency for Galera Cluster / MariaDB
 
 The whole Galera Cluster environment is established on Emulab.
+
 ` MariaDB version == 10.4.22
+
 Galera Cluster version == 26.4.9`
 
 ### Run [setup_server_node.sh](./setup_server_node.sh) and [setup_client_node.sh](./setup_client_node.sh) to set up Galera on server and client nodes respectively.
