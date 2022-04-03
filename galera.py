@@ -48,7 +48,6 @@ try:
 except getopt.GetoptError:
     print("python3 galera.py -w <wo_rate> -r <ro_rate> -p <w_percent> -t <trans_num> -o <op_num> -c <client_num> -n <node_no>")
     sys.exit()
-# print("Parameters:\nwo_rate = " + str(wo_rate) + "\nro_rate = " + str(ro_rate) + "\nw_percent = " + str(wr_rate) + "\ntrans_num = " + str(transaction_num) + "\nop_num = " + str(operation_num) + "\nclient_num = " + str(threads_num) + "\nnode_no = " + str(node_no) + "\nfolder_num = " + str(folder_num))
 
 key_num = 20 # key number in database
 total_op_num = 2 * transaction_num * operation_num
