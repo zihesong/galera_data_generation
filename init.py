@@ -1,5 +1,5 @@
 '''
-python3 galera/galera-db.py 155.98.39.143
+python3 init.py <server_ip_address>
 '''
 
 import os,sys
