@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# change j for run times
 for ((j=0;j<100;j++));do
 {
     for ((i=1;i<4;i++));do
