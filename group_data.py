@@ -17,6 +17,7 @@ def get_op(op):
         'tra_id': int(arr[3]),
     }
 
+# change the range according to the number of runs
 for i in range(1):
     folder_name = 'output/' + str(i) + '/'
     file_list = [fn for fn in os.listdir(folder_name) if fn.endswith('.txt')]
