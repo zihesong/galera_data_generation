@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# sh galera-client.sh 155.98.39.143
+# sh setup_client_node.sh 155.98.39.143
 
 server=$1
 
