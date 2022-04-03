@@ -45,7 +45,7 @@ The collected traces will be stored in folder `output/folder_num/` where the tra
 ```
 python3 group_data.py -o <operation_num> -r <running_times>
 ```
-The parameter `running_times` refers to run times in [multi_threads.sh](./multi_threads.sh).
+The parameter `running_times` refers to run times `j` in [multi_threads.sh](./multi_threads.sh).
 
 ### Run [check_rr.py](./check_rr.py) to check if the execution run violates Repeatable Read consistency.
   
