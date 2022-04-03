@@ -1,5 +1,5 @@
 '''
-python3 init.py <server_ip_address>
+python3 init.py 155.98.39.143
 '''
 
 import os,sys
