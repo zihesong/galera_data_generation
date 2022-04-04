@@ -1,6 +1,6 @@
 # Checking Repeatable Read Consistency for MariaDB / Galera Cluster 
 
-The whole Galera Cluster environment is established on Emulab.
+The whole Galera Cluster environment is established on Emulab. I'll update the pure MariaDB version ASAP.
 
 ```
 MariaDB version == 10.4.22
